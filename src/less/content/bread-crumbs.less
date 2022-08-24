@@ -1,0 +1,40 @@
+.bread-crumbs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 32px;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 50px;
+  }
+}
+
+.bread-crumbs__item {
+  list-style: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-align: left;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.bread-crumbs__item-link {
+  color: @main-text-color;
+  text-decoration: none;
+
+
+  &:hover {
+    color: @second-text-color;
+  }
+
+  &--current {
+    color: @second-text-color;
+  }
+}

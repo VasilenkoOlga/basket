@@ -1,0 +1,260 @@
+.form_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__map-address {
+  margin-bottom: 28px;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 555px;
+    height: 700px;
+  }
+}
+
+.form__label {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 25px;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 28px;
+  }
+}
+
+.form_form > .form__label:last-of-type {
+  margin-bottom: 37px;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 69px;
+  }
+}
+
+.form__label .form__input,
+.form__select {
+  border: none;
+  appearance: none;
+  background: #f2f2f2;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0;
+  text-align: left;
+  color: @second-text-color;
+  background-color: transparent;
+  border-bottom: 1px solid @main-text-color;
+  padding: 9px 0px;
+  height: 37px;
+}
+
+.form__label--adress {
+  margin-bottom: 12px;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 27px;
+  }
+}
+
+.form__label .form__placeholder {
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+  letter-spacing: 0;
+  font-weight: 400;
+  position: absolute;
+  left: 0;
+  bottom: 60%;
+  top: 22px;
+
+  &:not(.form__placeholder-q) {
+  transform: translateY(-50%);
+  width: calc(100% - 24px);
+  color: #aaa;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: @main-text-color;
+  transition:
+  top 0.5s ease,
+  color 0.5s ease,
+  font-size 0.5s ease;
+  }
+}
+
+.form__label input:focus + .form__placeholder,
+.form__label select:focus + .form__placeholder,
+.form__label textarea:focus + .form__placeholder,
+.form__label input:not(:placeholder-shown) + .form__placeholder,
+.form__label select:not(:placeholder-shown) + .form__placeholder,
+.form__label textarea:not(:placeholder-shown) + .form__placeholder,
+.form__label .form__placeholder-q {
+  top: 0;
+  font-size: 12px;
+  color: @main-text-color;
+  @media (min-width: @desktop-width) {
+    top: -2px;
+  }
+}
+
+.form__label .form__placeholder-q {
+  top: -9px;
+}
+
+.form__input,
+.form__select {
+  min-width:278px;
+  width: 100%;
+
+
+  &:focus, &:hover, &:active {
+    outline:none;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: 505px;
+  }
+}
+
+option {
+  background: @bg-color;
+  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: @main-text-color;
+}
+
+
+
+.form__input--textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.form__label--adress > .form__input--textarea {
+  height: 56px;
+
+  @media (min-width: @desktop-width) {
+    height: 37px;
+  }
+}
+
+.form__two-columns {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: @desktop-width) {
+    width: 505px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.form__two-columns .form__input {
+
+  @media (min-width: @desktop-width) {
+    min-width:235px;
+    width: 235px;
+  }
+}
+
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.select {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 286px;
+  width: 100%;
+
+  @media (min-width: @desktop-width) {
+    min-width:505px;
+  }
+}
+
+.select-wrap {
+	max-width: 700px;
+	width: 100%;
+	margin: 20px auto;
+}
+
+.select-wrap select {
+	margin: 20px;
+}
+
+.select__gap {
+	background: transparent;
+	color: @main-text-color;
+  border-bottom: 1px solid @main-text-color;
+	font-size: 16px;
+	padding: 9px 0px;
+	cursor: pointer;
+	position: relative;
+}
+
+.on.select__gap  {
+  border: none;
+}
+
+.select__list {
+	background: transparent;
+  border: 1px solid @main-text-color;
+  border-radius: 5px;
+	margin: 0px 0;
+}
+
+.select__list.on {
+	display: block;
+}
+
+.select__item span {
+	display: block;
+	padding: 10px 15px;
+	cursor: pointer;
+    color: @main-text-color;
+}
+
+.select__item.selected,
+.select__item span:hover {
+	color: @second-text-color;
+}
+
+.select__gap:after {
+	content: '';
+	display: block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 4px;
+	top: 50%;
+	margin-top: -7px;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 14px solid #000;
+
+	-webkit-transition: all .27s ease-in-out;
+	     -o-transition: all .27s ease-in-out;
+	        transition: all .27s ease-in-out;
+
+	-webkit-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	        transform: rotate(0deg);
+}
+
+.on.select__gap:after {
+	-webkit-transform: rotate(180deg);
+	    -ms-transform: rotate(180deg);
+	     -o-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}

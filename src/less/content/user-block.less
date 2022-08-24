@@ -1,0 +1,32 @@
+.user-block {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 42px;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 38px;
+  }
+}
+
+.user-block__text {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0;
+  text-align: left;
+  color: @second-text-color;
+  padding-right: 6px;
+}
+
+.user-block__link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-align: left;
+  color: @main-text-color;
+
+  &:hover {
+    color: @second-text-color;
+  }
+}

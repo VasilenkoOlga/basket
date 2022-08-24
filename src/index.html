@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Интернет-магазин!</title>
+</head>
+<body>
+  <div class="global-wrapper">
+    <header class="page-header">
+      <h2 class="page-header__title vissualy-hidden">Интернет магазин "Лого"</h2>
+      <nav class="main-nav main-nav--closed">
+        <div class="main-nav__first-container">
+          <div class="main-nav__left-icon">
+            <button class="main-nav_toggle-button" type="button" name="button">
+              <svg id="svgMinus" class="open" width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line y1="1" x2="28" y2="1" stroke="black" stroke-width="2"/>
+                <line y1="11" x2="28" y2="11" stroke="black" stroke-width="2"/>
+                <line y1="21" x2="28" y2="21" stroke="black" stroke-width="2"/>
+              </svg>
+              <svg id="svgPlus" class="close" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.364878 24.1561C0.153611 24.3395 0.0234784 24.5991 0.00287804 24.8781C-0.0177223 25.1572 0.0728815 25.433 0.254918 25.6455C0.467406 25.8276 0.743268 25.9182 1.02231 25.8976C1.30135 25.877 1.56092 25.7468 1.74437 25.5356L25.5356 1.74437C25.7468 1.56092 25.877 1.30135 25.8976 1.02231C25.9182 0.743268 25.8276 0.467406 25.6455 0.254918C25.433 0.0728815 25.1572 -0.0177223 24.8781 0.00287804C24.5991 0.0234784 24.3395 0.153611 24.1561 0.364878L0.364878 24.1561Z" fill="black"/>
+                <path d="M0.254918 0.254918C0.0728815 0.467406 -0.0177223 0.743268 0.00287804 1.02231C0.0234784 1.30135 0.153611 1.56092 0.364878 1.74437L24.1561 25.5356C24.2363 25.6621 24.344 25.769 24.4711 25.8484C24.5982 25.9277 24.7415 25.9775 24.8904 25.9939C25.0394 26.0104 25.1901 25.9932 25.3315 25.9436C25.4728 25.8939 25.6013 25.8132 25.7072 25.7072C25.8132 25.6013 25.8939 25.4728 25.9436 25.3315C25.9932 25.1901 26.0104 25.0394 25.9939 24.8904C25.9775 24.7415 25.9277 24.5982 25.8484 24.4711C25.769 24.344 25.6621 24.2363 25.5356 24.1561L1.74437 0.364878C1.56092 0.153611 1.30135 0.0234784 1.02231 0.00287804C0.743268 -0.0177223 0.467406 0.0728815 0.254918 0.254918Z" fill="black"/>
+              </svg>
+              <span class="vissualy-hidden">Открыть меню</span>
+            </button>
+            <form class="main-nav__search" action="index.html" method="post">
+              <button class="button-search" type="button" name="button-search">
+                <svg class="button-search-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <use xlink:href="../img/sprite1.svg#search"></use>
+                </svg>
+              </button>
+              <input class="main-nav__search-input" type="search" name="search" placeholder="Поиск">
+              <span class="vissualy-hidden">Поиск</span>
+            </form>
+          </div>
+          <a class="page-header__logo-link" href="#">
+            <img class="page-header__logo-img"src="img/logo.svg" alt="Лого" height="50" width="160">
+          </a>
+          <div class="main-nav__right-icon">
+            <a class="main-nav__profile" href="#">
+              <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="../img/sprite1.svg#profile"></use>
+              </svg>
+              <span class="vissualy-hidden">Профиль пользователя</span>
+            </a>
+            <a class="main-nav__favorites" href="#">
+              <svg class="main-nav__favorites-svg" width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="../img/sprite1.svg#favorites"></use>
+              </svg>
+              <span class="vissualy-hidden">Закладки</span>
+            </a>
+            <a class="main-nav__basket" href="#">
+              <svg class="main-nav__basket-svg" width="32" height="27" viewBox="0 0 32 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="../img/sprite1.svg#basket"></use>
+              </svg>
+              <span class="vissualy-hidden">Корзина</span>
+            </a>
+          </div>
+        </div>
+        <ul class="main-nav__list">
+          <div class="main-nav__list-left">
+            <li class="main-nav__item">
+              <a class="main-nav__item-link" href="#">Страница 1</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__item-link" href="#">Страница 2</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__item-link" href="#">Страница 34</a>
+            </li>
+          </div>
+          <div class="main-nav__list-right">
+            <li class="main-nav__item">
+              <a class="main-nav__item-link" href="#">Страница 4</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__item-link" href="#">Страница 5</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__item-link" href="#">Страница 6</a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <main class="page-main">
+      <ul class="bread-crumbs">
+        <li class="bread-crumbs__item">
+          <a href="#" class="bread-crumbs__item-link">Главная</a>
+        </li>
+        <li class="bread-crumbs__item">/</li>
+        <li class="bread-crumbs__item">
+          <a href="#" class="bread-crumbs__item-link bread-crumbs__item-link--current">Корзина</a>
+        </li>
+      </ul>
+      <div class="page-main-basket-container">
+        <h2 class="page-main__title">Корзина</h2>
+        <div class="user-block">
+          <p class="user-block__text">Есть аккаунт?</p>
+          <a href="#" class="user-block__link">Войти</a>
+        </div>
+        <section class="form">
+          <h3 class="form__title vissualy-hidden">Контактные данные заказчика</h3>
+          <form class="form_form" action="index.html" method="post">
+
+            <label class="form__label form__label--adress">
+              <textarea rows="1" class="form__input form__input--textarea form__input--adress" name="address" placeholder="Адрес" required resize="none">г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152</textarea>
+              <span class="form__placeholder">Адрес</span>
+            </label>
+            <picture>
+              <source media="(min-width: 1110px)" srcset="img/map-desktop.jpg 1x, img/map-desktop@2x.jpg 2x">
+              <img src="img/map-mobile.jpg" srcset="img/map-mobile.jpg 1x, img/map-mobile@2x.jpg 2x" alt="Карта" class="form__map-address" height="200" width="287">
+            </picture>
+
+            <div class="form__two-columns">
+              <label class="form__label form__label--name" for="name">
+                <input class="form__input form__input--name" type="text" name="name" placeholder="Ваше Имя" required>
+                <span class="form__placeholder">Ваше Имя</span>
+              </label>
+
+              <label class="form__label form__label--telephone" for="telephone">
+                <input class="form__input form__input--telephone" type="tel" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" name="telephone" placeholder="Ваш Телефон" required>
+                <span class="form__placeholder">Ваш Телефон</span>
+              </label>
+            </div>
+
+            <label class="form__label form__label--email" for="email">
+              <input class="form__input form__input--email" type="email" name="email" placeholder="Ваш Email" required>
+              <span class="form__placeholder">Ваш Email</span>
+            </label>
+
+            <label class="form__label">
+              <select class="form__select select" name="type-packaging" required>
+                <option value="without-packaging">Без упаковки</option>
+                <option value="standard-packaging">Стандартная</option>
+                <option value="gift-packaging">Подарочная</option>
+              </select>
+              <span class="form__placeholder form__placeholder-q">Тип упаковки</span>
+            </label>
+
+            <label class="form__label form__label--comment" for="comment">
+              <textarea class="form__input form__input--textarea form__input--comment" name="comment" placeholder="Введите комментарий" resize="none"></textarea>
+              <span class="form__placeholder">Введите комментарий</span>
+            </label>
+
+            <div class="purchase">
+              <h3 class="purchases__title">Выбранные товары:</h3>
+              <div class="purchases__list">
+
+                <article class="purchases__item">
+                  <picture>
+                    <source media="(min-width: 1110px)" srcset="img/purchases-img-desktop.jpg 1x, img/purchases-img-desktop@2x.jpg 2x">
+                    <img src="img/purchases-img-mobile.jpg" srcset="img/purchases-img-mobile.jpg 1x, img/purchases-img-mobile@2x.jpg 2x" width="80" height="80" alt="Фотография товара" class="purchases__img">
+                  </picture>
+                  <div class="purchases__info">
+                    <div class="purchases__left-column">
+                      <h4 class="purchases__name">Товар 1</h4>
+                      <div class="purchases__description-number">
+                      <p class="purchases__description">Описание товара, которое может быть длинным</p>
+                      <div class="purchases__number">
+                        <button class="purchases__button-minus" type="button" name="button-minus">
+                          <svg class="purchases__button-svg" width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="../img/sprite1.svg#minus"></use>
+                          </svg>
+                        </button>
+                        <input class="purchases__number-count" type="text" name="number-first-count" value="1">
+                        <button class="purchases__button-plus" type="button" name="button-plus">
+                          <svg class="purchases__button-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="../img/sprite1.svg#plus"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="purchases__right-column">
+                      <p class="purchases__price">1090 руб.</p>
+                      <button class="purchases__delete" type="button" name="delete">Удалить</button>
+                    </div>
+                  </div>
+                </article>
+
+                <hr class="purchases__line">
+
+                <article class="purchases__item">
+                  <picture>
+                    <source media="(min-width: 1110px)" srcset="img/purchases-img-desktop.jpg 1x, img/purchases-img-desktop@2x.jpg 2x">
+                    <img src="img/purchases-img-mobile.jpg" srcset="img/purchases-img-mobile.jpg 1x, img/purchases-img-mobile@2x.jpg 2x" width="80" height="80" alt="Фотография товара" class="purchases__img">
+                  </picture>
+                  <div class="purchases__info">
+                    <div class="purchases__left-column">
+                      <h4 class="purchases__name">Товар 2</h4>
+                      <div class="purchases__description-number">
+                        <p class="purchases__description">Описание товара, которое может быть очень-очень длинным</p>
+                        <div class="purchases__number">
+                          <button class="purchases__button-minus" type="button" name="button-minus">
+                            <svg class="purchases__button-svg" width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <use xlink:href="../img/sprite1.svg#minus"></use>
+                            </svg>
+                          </button>
+                          <input class="purchases__number-count" type="text" name="number-second-count" value="1">
+                          <button class="purchases__button-plus" type="button" name="button-plus">
+                            <svg class="purchases__button-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <use xlink:href="../img/sprite1.svg#plus"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="purchases__right-column">
+                      <p class="purchases__price">700 руб.</p>
+                      <button class="purchases__delete" type="button" name="delete">Удалить</button>
+                    </div>
+                  </div>
+                </article>
+
+                <hr class="purchases__line">
+
+                <article class="purchases__item">
+                  <picture>
+                    <source media="(min-width: 1110px)" srcset="img/purchases-img-desktop.jpg 1x, img/purchases-img-desktop@2x.jpg 2x">
+                    <img src="img/purchases-img-mobile.jpg" srcset="img/purchases-img-mobile.jpg 1x, imgpurchases-img-mobile@2x.jpg 2x" width="80" height="80" alt="Фотография товара" class="purchases__img">
+                  </picture>
+                  <div class="purchases__info">
+                    <div class="purchases__left-column">
+                      <h4 class="purchases__name">Товар 3</h4>
+                      <div class="purchases__description-number">
+                        <p class="purchases__description">Короткое описание товара</p>
+                        <div class="purchases__number">
+                          <button class="purchases__button-minus" type="button" name="button-minus">
+                            <svg  class="purchases__button-svg" width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <use xlink:href="../img/sprite1.svg#minus"></use>
+                            </svg>
+                          </button>
+                          <input class="purchases__number-count" type="text" name="number-third-count" value="2">
+                          <button class="purchases__button-plus" type="button" name="button-plus">
+                            <svg class="purchases__button-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <use xlink:href="../img/sprite1.svg#plus"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="purchases__right-column">
+                      <p class="purchases__price">2000 руб.</p>
+                      <button class="purchases__delete" type="button" name="delete">Удалить</button>
+                    </div>
+                  </div>
+                </article>
+
+                <hr class="purchases__line">
+              </div>
+              <div class="purchases__total">
+                <p class="purchases__title-total">Итог:</p>
+                <p class="purchases__total-price">3790 руб.</p>
+              </div>
+              <button class="button" type="submit" name="purchases__button-buy">Купить</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <pre></pre>
+      <pre id="app"></pre>
+    </footer>
+  </div>
+</body>
+</html>

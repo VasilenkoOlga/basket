@@ -121,58 +121,6 @@ const configLess = {
             outputPath : 'dist/img/' ,
             publicPath : 'sprites/'}
         },
-    /*  {
-          test: /\.xml$/,
-          use: 'xml-loader'
-        },
-        {
-          test: /\.csv$/,
-          use: 'csv-loader'
-        },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use:  {
-            loader: 'babel-loader',
-            options: {
-              'presets': [
-                [
-                  '@babel/preset-env',
-                    {
-                      'useBuiltIns': 'entry',
-                      'corejs': '3.21'
-                    }
-                  ]
-                ]
-            }
-          }
-        },
-        {
-          test: /\.ts$/,
-          exclude: /node_modules/,
-          use:  {
-            loader: 'babel-loader',
-            options: {
-              'presets': [
-                '@babel/preset-env',
-                '@babel/preset-typescript'
-              ]
-            }
-          }
-        },
-        {
-          test: /\.jsx$/,
-          exclude: /node_modules/,
-          use:  {
-            loader: 'babel-loader',
-            options: {
-              'presets': [
-                '@babel/preset-env',
-                '@babel/preset-react'
-              ]
-            }
-          }
-        } */
       ]
     },
     plugins: plugins()

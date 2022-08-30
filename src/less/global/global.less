@@ -47,6 +47,24 @@ body {
   }
 }
 
+//Всплывающие подсказки
+[data-tooltip] {
+ position: relative; /* Относительное позиционирование */
+}
+[data-tooltip]:hover::after {
+ content: attr(data-tooltip); /* Выводим текст */
+ position: absolute; /* Абсолютное позиционирование */
+ width: 200px;
+ left: 0;
+ background: @main-text-color;
+ color: #fff;
+ padding: 0.5em;
+ pointer-events: none; /* Подсказка */
+ transition: 1s; /* Время появления подсказки */
+ opacity: 1; /* Показываем подсказку */
+ top: 2em; /* Положение подсказки */
+}
+
 h1, h2, h3, h4, p, a {
   padding: 0;
   margin: 0;

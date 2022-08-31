@@ -3,49 +3,72 @@ import * as $ from 'jquery'
 const MAX_COMMENT_LENGTH = 600;
 const MIN_NAME_LENGTH = 3;
 const MIN_TELEPHONE_LENGTH = 9;
-const textDescription = document.querySelector('.form__input--comment');
-const name = document.querySelector('.form__input--name');
-const telephone = document.querySelector('.form__input--telephone');
+const form = document.querySelector('.form_form');
+const description = document.querySelector('.form__label--comment');
+const textDescription = description.querySelector('.form__input--comment');
+const name = document.querySelector('.form__label--name');
+const nameText = name.querySelector('.form__input--name');
+const telephone = document.querySelector('.form__label--telephone');
+const telephoneText = telephone.querySelector('.form__input--telephone');
+
+// Действия при выявлении ошибки в поле
+const addError = function (text, textInput, error) {
+  text.textContent = error;
+  textInput.setCustomValidity(' ');
+  text.classList.add('color-red');
+  textInput.classList.add('color-red');
+}
+
+// Отмена действий ошибке
+const removeError = function (text, textInput) {
+  text.textContent = text.dataset.prompt;
+  textInput.setCustomValidity('');
+  text.classList.remove('color-red');
+  textInput.classList.remove('color-red');
+}
 
 // Проверки на количество символов
 textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
+  const text = description.querySelector('.form__placeholder');
 
   if (valueLength > MAX_COMMENT_LENGTH){
-    textDescription.setCustomValidity('Не больше 600 символов');
+    addError(text, textDescription, 'Не больше 600 символов');
   } else {
-    textDescription.setCustomValidity('');
+    removeError(text, textDescription);
   }
   textDescription.reportValidity();
 });
 
-name.addEventListener('input', () => {
-  const valueLength = name.value.length;
+nameText.addEventListener('input', () => {
+  const valueLength = nameText.value.length;
+  const text = name.querySelector('.form__placeholder');
 
-  if (valueLength < MIN_NAME_LENGTH) {
-    name.setCustomValidity('Не менее 3 символов');
+  nameText.checkValidity();
+  if (valueLength > 0 && valueLength < MIN_NAME_LENGTH) {
+    addError(text, nameText, 'Не менее 3 символов');
   }
   else {
-    name.setCustomValidity('');
+    removeError(text, nameText);
   }
-  name.reportValidity();
+  nameText.reportValidity();
 });
 
-telephone.addEventListener('input', () => {
-  const valueLength = telephone.value.length;
+telephoneText.addEventListener('input', () => {
+  const valueLength = telephoneText.value.length;
+  const text = telephone.querySelector('.form__placeholder');
 
-  if (valueLength < MIN_TELEPHONE_LENGTH) {
-    telephone.setCustomValidity('Номер телефона не менее 9 символов');
+  if (valueLength > 0 && valueLength < MIN_TELEPHONE_LENGTH) {
+    addError(text, telephoneText, 'Телефон от 9 цифр');
   }
   else {
-    telephone.setCustomValidity('');
+    removeError(text, telephoneText);
   }
-  telephone.reportValidity();
+  telephoneText.reportValidity();
 });
 
 /*
 const url = '';
-const form = document.querySelector('.form_form');
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
@@ -57,13 +80,14 @@ form.addEventListener('submit', function (evt) {
         method: 'POST',
         body: formData,
       },)
-
+      form.reset();
 });
 */
 
 // Временное решение для данных из формы
-$(".form_form").on("submit", function(e){
+form.addEventListener ("submit", function(e){
   e.preventDefault();
   let data = $(this).serialize();
   console.log(data);
+  form.reset();
 })

@@ -116,12 +116,12 @@
             <div class="form__two-columns">
               <label class="form__label form__label--name" for="name">
                 <input class="form__input form__input--name" type="text" name="name" placeholder="Ваше Имя" required>
-                <span class="form__placeholder">Ваше Имя</span>
+                <span class="form__placeholder" data-prompt="Ваше Имя">Ваше Имя</span>
               </label>
 
-              <label class="form__label form__label--telephone" data-tooltip="Телефон в формате +7(XXX)XXX-XX-XX" for="telephone">
-                <input class="form__input form__input--telephone" type="tel" name="telephone" placeholder="Ваш Телефон" required>
-                <span class="form__placeholder">Ваш Телефон</span>
+              <label class="form__label form__label--telephone" data-tooltip="Телефон в формате +7(XXX)-XXX-XX-XX" for="telephone">
+                <input class="form__input form__input--telephone" type="tel" name="telephone" placeholder="Ваш Телефон" minlength="9" required>
+                <span class="form__placeholder" data-prompt="Ваш Телефон">Ваш Телефон</span>
               </label>
             </div>
 
@@ -140,8 +140,8 @@
             </label>
 
             <label class="form__label form__label--comment" for="comment">
-              <textarea class="form__input form__input--textarea form__input--comment" name="comment" placeholder="Введите комментарий" resize="none"></textarea>
-              <span class="form__placeholder">Введите комментарий</span>
+              <textarea class="form__input form__input--textarea form__input--comment" name="comment" placeholder="Введите комментарий" resize="none" manlength="600"></textarea>
+              <span class="form__placeholder" data-prompt="Введите комментарий">Введите комментарий</span>
             </label>
 
             <div class="purchase">

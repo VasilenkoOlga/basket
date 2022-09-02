@@ -14,8 +14,6 @@ const emailText = email.querySelector('.form__input--email');
 const REG_TELEPHONE = /^[\d\+][\d\(\)\-]{4,14}\d$/; // от 6 до 16 цифр, первая цифра или плюс, последняя только цифра. В середине допустимы скобки и тире
 const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
 
-console.log(emailText);
-
 // Действия при выявлении ошибки в поле
 const addError = function (text, textInput, error) {
   text.textContent = error;
@@ -33,11 +31,23 @@ const removeError = function (text, textInput) {
 }
 
 const select = document.querySelector('.form__select');
+//select.selectedIndex = -1;
+/*
+const select = document.querySelector('.form__select');
 const selectGap = document.querySelector('.select__gap');
+const qqq = document.querySelector('.form__label');
+select.selectedIndex = -1;
+const www = document.querySelector('.button-submit');
 
 form.addEventListener('submit', () => {
-  select.checkValidity();
+  console.log('0');
+  if(select.selectedIndex == (-1)){
+    console.log('1');
+  } else {
+    console.log('2');
+  }
 })
+*/
 
 // Проверка EMAIL
 emailText.addEventListener('input', () => {
@@ -118,10 +128,24 @@ form.addEventListener('submit', function (evt) {
 });
 */
 
+const xxx = document.querySelector('.select__gap');
+const selectOption = select.querySelectorAll('option');
+
+console.log(selectOption);
+
 // Временное решение для данных из формы
 form.addEventListener ("submit", function(e){
   e.preventDefault();
   let data = $(this).serialize();
   console.log(data);
+// Обработка поля тип упаковки при отправке
+  xxx.textContent = "Тип упаковки"
+  selectOption.forEach((option, i) => {
+    if(i > 0) {
+      option.removeAttribute("selected");
+    }
+
+  });
+  selectOption[0].setAttribute("selected", "selected");
   form.reset();
 })

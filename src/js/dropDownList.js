@@ -55,3 +55,7 @@ $('.select').each(function(){
 			}
 		});
 	});
+
+const www = document.querySelector('.select__list');
+const qqq = document.querySelector('.select__item');
+qqq.remove();

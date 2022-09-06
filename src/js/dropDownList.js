@@ -8,19 +8,21 @@ $('.select').each(function(){
 		//selectedOption = selectOption.filter(':selected'), // Отфильтровать  выбранный пункт
 			dur = 500;
 
-		$this.hide(); // скрытие селекта
+		//$this.hide(); // скрытие селекта
 		$this.wrap('<div class="select"></div>'); //создание div class="select" внутрь которого помещается селект из верстки
 		$('<div>',{ //создание div внутри контейнера с классом и текстом
 			class: 'select__gap',
 			text: 'Тип упаковки'
-		}).insertAfter($this); // добавление нового div после селект
+		}).insertBefore($this); // добавление нового div перед селект
 
-		const selectGap = $this.next('.select__gap');
+		const selectGap = $('.select__gap');
+    console.log(selectGap);
 		$('<ul>',{ // Создние списка после элемента с классом .select__gap
 			class: 'select__list'
 		}).insertAfter(selectGap);
 
-		const selectList = selectGap.next('.select__list');
+		const selectList = $('.select__list');
+    console.log(selectList);
 		for(let i = 0; i < selectOptionLength; i++){
 			$('<li>',{
 				class: 'select__item',
@@ -56,6 +58,7 @@ $('.select').each(function(){
 		});
 	});
 
-const www = document.querySelector('.select__list');
-const qqq = document.querySelector('.select__item');
-qqq.remove();
+const selectList = document.querySelector('.select__list');
+const selectItems = selectList.querySelectorAll('.select__item');
+
+selectItems[0].remove();

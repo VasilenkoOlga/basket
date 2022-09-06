@@ -11,8 +11,12 @@ const telephone = document.querySelector('.form__label--telephone');
 const telephoneText = telephone.querySelector('.form__input--telephone');
 const email = document.querySelector('.form__label--email');
 const emailText = email.querySelector('.form__input--email');
+const formSelect = document.querySelector('.form__label--type-packaging');
+const select = formSelect.querySelector('.form__select');
 const REG_TELEPHONE = /^[\d\+][\d\(\)\-]{4,14}\d$/; // от 6 до 16 цифр, первая цифра или плюс, последняя только цифра. В середине допустимы скобки и тире
 const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
+const selectGap = document.querySelector('.select__gap');
+const selectOption = select.querySelectorAll('option');
 
 // Действия при выявлении ошибки в поле
 const addError = function (text, textInput, error) {
@@ -30,7 +34,16 @@ const removeError = function (text, textInput) {
   textInput.classList.remove('color-red');
 }
 
-const select = document.querySelector('.form__select');
+select.addEventListener('invalid', () => {
+  const text = formSelect.querySelector('.form__placeholder');
+
+  if (select.validity.valueMissing){
+    addError(text, select, 'Обязательное поле');
+  } else {
+    removeError(text, select);
+  }
+});
+
 //select.selectedIndex = -1;
 /*
 const select = document.querySelector('.form__select');
@@ -50,6 +63,15 @@ form.addEventListener('submit', () => {
 */
 
 // Проверка EMAIL
+//Нужно поправить ошибку с невыводом после заполнения верхней подписи
+emailText.addEventListener('invalid', () => {
+  const text = email.querySelector('.form__placeholder');
+
+  if (emailText.validity.valueMissing){
+    addError(text, emailText, 'Обязательное поле');
+  }
+});
+
 emailText.addEventListener('input', () => {
   const valueLength = emailText.value.length;
   const value = emailText.value;
@@ -67,7 +89,15 @@ emailText.addEventListener('input', () => {
 
 })
 
-// Проверка телефона регулярынм выражением
+// Проверка телефона на заполнение и регулярынм выражением
+telephoneText.addEventListener('invalid', () => {
+  const text = telephone.querySelector('.form__placeholder');
+
+  if (telephoneText.validity.valueMissing){
+    addError(text, telephoneText, 'Обязательное поле');
+  }
+});
+
 telephoneText.addEventListener('input', () => {
   const valueLength = telephoneText.value.length;
   const value = telephoneText.value;
@@ -85,6 +115,7 @@ telephoneText.addEventListener('input', () => {
 });
 
 // Проверки на количество символов
+
 textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
   const text = description.querySelector('.form__placeholder');
@@ -95,6 +126,14 @@ textDescription.addEventListener('input', () => {
     removeError(text, textDescription);
   }
   textDescription.reportValidity();
+});
+
+nameText.addEventListener('invalid', () => {
+  const text = name.querySelector('.form__placeholder');
+
+  if (nameText.validity.valueMissing){
+    addError(text, nameText, 'Обязательное поле');
+  }
 });
 
 nameText.addEventListener('input', () => {
@@ -128,18 +167,13 @@ form.addEventListener('submit', function (evt) {
 });
 */
 
-const xxx = document.querySelector('.select__gap');
-const selectOption = select.querySelectorAll('option');
-
-console.log(selectOption);
-
 // Временное решение для данных из формы
 form.addEventListener ("submit", function(e){
   e.preventDefault();
   let data = $(this).serialize();
   console.log(data);
 // Обработка поля тип упаковки при отправке
-  xxx.textContent = "Тип упаковки"
+  selectGap.textContent = "Тип упаковки"
   selectOption.forEach((option, i) => {
     if(i > 0) {
       option.removeAttribute("selected");

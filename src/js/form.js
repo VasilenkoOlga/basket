@@ -17,10 +17,13 @@ const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
 const selectGap = document.querySelector('.select__gap');
 const selectOption = select.querySelectorAll('option');
 // Действия при выявлении ошибки в поле
-const addError = function (text, textInput, error) {
+const addError = function (text, textInput, error, x) {
   text.textContent = error;
   textInput.setCustomValidity(' ');
   text.classList.add('color-red');
+  if(x){
+    x.classList.add('color-red');
+  }
   textInput.classList.add('color-red');
 }
 // Отмена действий ошибке
@@ -44,7 +47,7 @@ emailText.addEventListener('invalid', () => {
   const text = email.querySelector('.form__placeholder');
 
   if (emailText.validity.valueMissing){
-    addError(text, emailText, 'Обязательное поле');
+    addError(text, emailText, 'Обязательное поле', selectGap);
   }
 });
 emailText.addEventListener('input', () => {

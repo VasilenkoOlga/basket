@@ -4,13 +4,16 @@ const formSelect = document.querySelector('.form__label--type-packaging');
 const select = formSelect.querySelector('.form__select');
 const text = formSelect.querySelector('.form__placeholder');
 
-const removeError = function (text, textInput) {
+const removeError = function (text, textInput, textInputLine) {
   text.textContent = text.dataset.prompt;
   textInput.setCustomValidity('');
   text.classList.remove('color-red');
-  textInput.classList.remove('color-red');
+  if(textInputLine) {
+    textInputLine.classList.remove('color-red');
+  } else {
+    textInput.classList.remove('color-red');
+  }
 }
-
 //  Выпадающий список
 $('.select').each(function(){
 		// Variables

@@ -1,5 +1,4 @@
 import * as $ from 'jquery'
-
 const MAX_COMMENT_LENGTH = 600;
 const MIN_NAME_LENGTH = 3;
 const form = document.querySelector('.form_form');
@@ -17,7 +16,6 @@ const REG_TELEPHONE = /^[\d\+][\d\(\)\-]{4,14}\d$/; // от 6 до 16 цифр, 
 const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
 const selectGap = document.querySelector('.select__gap');
 const selectOption = select.querySelectorAll('option');
-
 // Действия при выявлении ошибки в поле
 const addError = function (text, textInput, error) {
   text.textContent = error;
@@ -25,7 +23,6 @@ const addError = function (text, textInput, error) {
   text.classList.add('color-red');
   textInput.classList.add('color-red');
 }
-
 // Отмена действий ошибке
 const removeError = function (text, textInput) {
   text.textContent = text.dataset.prompt;
@@ -33,7 +30,6 @@ const removeError = function (text, textInput) {
   text.classList.remove('color-red');
   textInput.classList.remove('color-red');
 }
-
 select.addEventListener('invalid', () => {
   const text = formSelect.querySelector('.form__placeholder');
 
@@ -41,8 +37,6 @@ select.addEventListener('invalid', () => {
     addError(text, select, 'Обязательное поле');
   }
 });
-
-
 // Проверка EMAIL
 //Нужно поправить ошибку с невыводом после заполнения верхней подписи
 
@@ -53,12 +47,10 @@ emailText.addEventListener('invalid', () => {
     addError(text, emailText, 'Обязательное поле');
   }
 });
-
 emailText.addEventListener('input', () => {
   const valueLength = emailText.value.length;
   const value = emailText.value;
   const text = email.querySelector('.form__placeholder');
-
   if (valueLength == 0) {
     removeError(text, emailText);
   } else if (!(REG_EMAIL.test(value))) {
@@ -68,23 +60,18 @@ emailText.addEventListener('input', () => {
     removeError(text, emailText);
   }
   emailText.reportValidity();
-
 })
-
 // Проверка телефона на заполнение и регулярынм выражением
 telephoneText.addEventListener('invalid', () => {
   const text = telephone.querySelector('.form__placeholder');
-
   if (telephoneText.validity.valueMissing){
     addError(text, telephoneText, 'Обязательное поле');
   }
 });
-
 telephoneText.addEventListener('input', () => {
   const valueLength = telephoneText.value.length;
   const value = telephoneText.value;
   const text = telephone.querySelector('.form__placeholder');
-
   if (valueLength == 0) {
     removeError(text, telephoneText);
   } else if (!(REG_TELEPHONE.test(value))) {
@@ -95,13 +82,10 @@ telephoneText.addEventListener('input', () => {
   }
   telephoneText.reportValidity();
 });
-
 // Проверки на количество символов
-
 textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
   const text = description.querySelector('.form__placeholder');
-
   if (valueLength > MAX_COMMENT_LENGTH){
     addError(text, textDescription, 'Не больше 600 символов');
   } else {
@@ -109,19 +93,15 @@ textDescription.addEventListener('input', () => {
   }
   textDescription.reportValidity();
 });
-
 nameText.addEventListener('invalid', () => {
   const text = name.querySelector('.form__placeholder');
-
   if (nameText.validity.valueMissing){
     addError(text, nameText, 'Обязательное поле');
   }
 });
-
 nameText.addEventListener('input', () => {
   const valueLength = nameText.value.length;
   const text = name.querySelector('.form__placeholder');
-
   nameText.checkValidity();
   if (valueLength > 0 && valueLength < MIN_NAME_LENGTH) {
     addError(text, nameText, 'Не менее 3 символов');
@@ -131,14 +111,11 @@ nameText.addEventListener('input', () => {
   }
   nameText.reportValidity();
 });
-
 /*
 const url = '';
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
-
   const formData = new FormData(evt.target);
-
     fetch(
       url,
       {
@@ -148,7 +125,6 @@ form.addEventListener('submit', function (evt) {
       form.reset();
 });
 */
-
 // Временное решение для данных из формы
 form.addEventListener ("submit", function(e){
   e.preventDefault();
@@ -160,7 +136,6 @@ form.addEventListener ("submit", function(e){
     if(i > 0) {
       option.removeAttribute("selected");
     }
-
   });
   selectOption[0].setAttribute("selected", "selected");
   form.reset();

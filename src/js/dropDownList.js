@@ -1,4 +1,16 @@
 import * as $ from 'jquery'
+
+const formSelect = document.querySelector('.form__label--type-packaging');
+const select = formSelect.querySelector('.form__select');
+const text = formSelect.querySelector('.form__placeholder');
+
+const removeError = function (text, textInput) {
+  text.textContent = text.dataset.prompt;
+  textInput.setCustomValidity('');
+  text.classList.remove('color-red');
+  textInput.classList.remove('color-red');
+}
+
 //  Выпадающий список
 $('.select').each(function(){
 		// Variables
@@ -16,13 +28,11 @@ $('.select').each(function(){
 		}).insertBefore($this); // добавление нового div перед селект
 
 		const selectGap = $('.select__gap');
-    console.log(selectGap);
 		$('<ul>',{ // Создние списка после элемента с классом .select__gap
 			class: 'select__list'
 		}).insertAfter(selectGap);
 
 		const selectList = $('.select__list');
-    console.log(selectList);
 		for(let i = 0; i < selectOptionLength; i++){
 			$('<li>',{
 				class: 'select__item',
@@ -47,6 +57,7 @@ $('.select').each(function(){
 
           $('select option').removeAttr('selected');
           $('select option[value="' + chooseItem + '"]').attr('selected', 'selected');
+          removeError(text, select);
 					selectGap.text($(this).find('span').text());
 					selectList.slideUp(dur); // Плавное скрытие JQ
 					selectGap.removeClass('on'); // Удалить класс

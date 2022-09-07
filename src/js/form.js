@@ -39,31 +39,13 @@ select.addEventListener('invalid', () => {
 
   if (select.validity.valueMissing){
     addError(text, select, 'Обязательное поле');
-  } else {
-    removeError(text, select);
   }
 });
 
-//select.selectedIndex = -1;
-/*
-const select = document.querySelector('.form__select');
-const selectGap = document.querySelector('.select__gap');
-const qqq = document.querySelector('.form__label');
-select.selectedIndex = -1;
-const www = document.querySelector('.button-submit');
-
-form.addEventListener('submit', () => {
-  console.log('0');
-  if(select.selectedIndex == (-1)){
-    console.log('1');
-  } else {
-    console.log('2');
-  }
-})
-*/
 
 // Проверка EMAIL
 //Нужно поправить ошибку с невыводом после заполнения верхней подписи
+
 emailText.addEventListener('invalid', () => {
   const text = email.querySelector('.form__placeholder');
 

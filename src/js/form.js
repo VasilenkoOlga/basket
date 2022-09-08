@@ -16,6 +16,7 @@ const REG_TELEPHONE = /^[\d\+][\d\(\)\-]{4,14}\d$/; // от 6 до 16 цифр, 
 const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
 const selectGap = document.querySelector('.select__gap');
 const selectOption = select.querySelectorAll('option');
+
 // Действия при выявлении ошибки в поле
 const addError = function (text, textInput, error, x) {
   text.textContent = error;
@@ -37,7 +38,11 @@ select.addEventListener('invalid', () => {
   const text = formSelect.querySelector('.form__placeholder');
 
   if (select.validity.valueMissing){
-    addError(text, select, 'Обязательное поле');
+  //  addError(text, select, 'Обязательное поле');
+    text.textContent = 'Обязательное поле';
+    select.setCustomValidity(' ');
+    text.classList.add('color-red');
+    selectGap.classList.add('color-red');
   }
 });
 // Проверка EMAIL

@@ -24,37 +24,42 @@ const addError = function (text, textInput, error, x) {
   text.classList.add('color-red');
   if(x){
     x.classList.add('color-red');
+  } else {
+    textInput.classList.add('color-red');
   }
-  textInput.classList.add('color-red');
 }
 // Отмена действий ошибке
-const removeError = function (text, textInput) {
+const removeError = function (text, textInput){
   text.textContent = text.dataset.prompt;
   textInput.setCustomValidity('');
   text.classList.remove('color-red');
   textInput.classList.remove('color-red');
 }
+
+// Проверка EMAIL
+//Нужно поправить ошибку с невыводом после заполнения верхней подписи
+
 select.addEventListener('invalid', () => {
   const text = formSelect.querySelector('.form__placeholder');
 
   if (select.validity.valueMissing){
-  //  addError(text, select, 'Обязательное поле');
-    text.textContent = 'Обязательное поле';
+    addError(text, select, 'Обязательное поле', selectGap);
+/*    text.textContent = 'Обязательное поле';
     select.setCustomValidity(' ');
     text.classList.add('color-red');
     selectGap.classList.add('color-red');
+    */
   }
 });
-// Проверка EMAIL
-//Нужно поправить ошибку с невыводом после заполнения верхней подписи
 
 emailText.addEventListener('invalid', () => {
   const text = email.querySelector('.form__placeholder');
 
   if (emailText.validity.valueMissing){
-    addError(text, emailText, 'Обязательное поле', selectGap);
+    addError(text, emailText, 'Обязательное поле');
   }
 });
+
 emailText.addEventListener('input', () => {
   const valueLength = emailText.value.length;
   const value = emailText.value;
@@ -69,6 +74,7 @@ emailText.addEventListener('input', () => {
   }
   emailText.reportValidity();
 })
+
 // Проверка телефона на заполнение и регулярынм выражением
 telephoneText.addEventListener('invalid', () => {
   const text = telephone.querySelector('.form__placeholder');
@@ -76,6 +82,7 @@ telephoneText.addEventListener('invalid', () => {
     addError(text, telephoneText, 'Обязательное поле');
   }
 });
+
 telephoneText.addEventListener('input', () => {
   const valueLength = telephoneText.value.length;
   const value = telephoneText.value;
@@ -90,6 +97,7 @@ telephoneText.addEventListener('input', () => {
   }
   telephoneText.reportValidity();
 });
+
 // Проверки на количество символов
 textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
@@ -101,12 +109,14 @@ textDescription.addEventListener('input', () => {
   }
   textDescription.reportValidity();
 });
+
 nameText.addEventListener('invalid', () => {
   const text = name.querySelector('.form__placeholder');
   if (nameText.validity.valueMissing){
     addError(text, nameText, 'Обязательное поле');
   }
 });
+
 nameText.addEventListener('input', () => {
   const valueLength = nameText.value.length;
   const text = name.querySelector('.form__placeholder');
@@ -119,6 +129,7 @@ nameText.addEventListener('input', () => {
   }
   nameText.reportValidity();
 });
+
 /*
 const url = '';
 form.addEventListener('submit', function (evt) {

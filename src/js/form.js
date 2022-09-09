@@ -1,4 +1,6 @@
-import * as $ from 'jquery'
+import * as $ from 'jquery';
+import  {addError, removeError} from './errorVisualization.js'
+
 const MAX_COMMENT_LENGTH = 600;
 const MIN_NAME_LENGTH = 3;
 const form = document.querySelector('.form_form');
@@ -16,42 +18,46 @@ const REG_TELEPHONE = /^[\d\+][\d\(\)\-]{4,14}\d$/; // от 6 до 16 цифр, 
 const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
 const selectGap = document.querySelector('.select__gap');
 const selectOption = select.querySelectorAll('option');
+const address = document.querySelector('.form__label--adress');
+const addressText = address.querySelector('.form__input--adress');
 
-// Действия при выявлении ошибки в поле
-const addError = function (text, textInput, error, x) {
-  text.textContent = error;
-  textInput.setCustomValidity(' ');
-  text.classList.add('color-red');
-  if(x){
-    x.classList.add('color-red');
+
+// Проверка наличия адреса
+addressText.addEventListener('invalid', () => {
+  const text = address.querySelector('.form__placeholder');
+
+  if (addressText.validity.valueMissing){
+    addError(text, addressText, 'Обязательное поле');
   } else {
-    textInput.classList.add('color-red');
+    removeError(text, addressText);
   }
-}
-// Отмена действий ошибке
-const removeError = function (text, textInput){
-  text.textContent = text.dataset.prompt;
-  textInput.setCustomValidity('');
-  text.classList.remove('color-red');
-  textInput.classList.remove('color-red');
-}
+});
 
-// Проверка EMAIL
-//Нужно поправить ошибку с невыводом после заполнения верхней подписи
+addressText.addEventListener('input', () => {
+  const valueLength = addressText.value.length;
+  console.log(valueLength);
+  const text = address.querySelector('.form__placeholder');
+  console.log(text);
+  addressText.checkValidity();
+  console.log(valueLength > 0 && valueLength < MIN_NAME_LENGTH);
+  if (valueLength > 0 && valueLength < MIN_NAME_LENGTH) {
+    addError(text, addressText, 'Не менее 3 символов');
+  } else {
+    removeError(text, addressText);
+  }
+  addressText.reportValidity();
+});
 
+// Проверка выбора поля "Тип упаковки"
 select.addEventListener('invalid', () => {
   const text = formSelect.querySelector('.form__placeholder');
 
   if (select.validity.valueMissing){
     addError(text, select, 'Обязательное поле', selectGap);
-/*    text.textContent = 'Обязательное поле';
-    select.setCustomValidity(' ');
-    text.classList.add('color-red');
-    selectGap.classList.add('color-red');
-    */
   }
 });
 
+// Проверка EMAIL
 emailText.addEventListener('invalid', () => {
   const text = email.querySelector('.form__placeholder');
 
@@ -98,7 +104,7 @@ telephoneText.addEventListener('input', () => {
   telephoneText.reportValidity();
 });
 
-// Проверки на количество символов
+// Проверки на количество символов комментария
 textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
   const text = description.querySelector('.form__placeholder');
@@ -144,6 +150,7 @@ form.addEventListener('submit', function (evt) {
       form.reset();
 });
 */
+
 // Временное решение для данных из формы
 form.addEventListener ("submit", function(e){
   e.preventDefault();

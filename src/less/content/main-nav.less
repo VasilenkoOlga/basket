@@ -79,23 +79,26 @@
   flex-direction: row;
 }
 
-.main-nav__search-input {
+.main-nav__search-input--hidden {
   display: none;
+}
+
+.main-nav__search-input {
+  border: none;
+  border-bottom: 1px solid @main-text-color;
+  padding: 6px 0px;
+  margin-left: 8px;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color:@second-text-color;
+    outline: none;
+  }
 
   @media (min-width: @desktop-width) {
     display: block;
-    border: none;
-    border-bottom: 1px solid @main-text-color;
-    padding: 6px 0px;
     width: 250px;
-
-
-    &:hover,
-    &:focus,
-    &:focus-visible {
-      color:@second-text-color;
-      outline: none;
-    }
   }
 }
 

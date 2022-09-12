@@ -3,6 +3,7 @@ import  {addError, removeError} from './errorVisualization.js'
 
 const MAX_COMMENT_LENGTH = 600;
 const MIN_NAME_LENGTH = 3;
+const MIN_ADDRESS_LENGTH = 15;
 const form = document.querySelector('.form_form');
 const description = document.querySelector('.form__label--comment');
 const textDescription = description.querySelector('.form__input--comment');
@@ -21,8 +22,8 @@ const selectOption = select.querySelectorAll('option');
 const address = document.querySelector('.form__label--adress');
 const addressText = address.querySelector('.form__input--adress');
 
-
 // Проверка наличия адреса
+/*
 addressText.addEventListener('invalid', () => {
   const text = address.querySelector('.form__placeholder');
 
@@ -32,21 +33,21 @@ addressText.addEventListener('invalid', () => {
     removeError(text, addressText);
   }
 });
-
+*/
+// Проверка заполнения адреса не менее чем на 15 симаолов
 addressText.addEventListener('input', () => {
   const valueLength = addressText.value.length;
-  console.log(valueLength);
   const text = address.querySelector('.form__placeholder');
-  console.log(text);
   addressText.checkValidity();
-  console.log(valueLength > 0 && valueLength < MIN_NAME_LENGTH);
-  if (valueLength > 0 && valueLength < MIN_NAME_LENGTH) {
-    addError(text, addressText, 'Не менее 3 символов');
+
+  if (valueLength < MIN_ADDRESS_LENGTH) {
+    addError(text, addressText, 'Не менее 15 символов');
   } else {
     removeError(text, addressText);
   }
   addressText.reportValidity();
 });
+
 
 // Проверка выбора поля "Тип упаковки"
 select.addEventListener('invalid', () => {

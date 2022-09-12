@@ -88,7 +88,19 @@
     border-bottom: 1px solid @main-text-color;
     padding: 6px 0px;
     width: 250px;
+
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color:@second-text-color;
+      outline: none;
+    }
   }
+}
+
+.main-nav__search-input::placeholder  {
+  color:@main-text-color;
 }
 
 .main-nav__right-icon {

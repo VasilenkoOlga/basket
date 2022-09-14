@@ -7,7 +7,6 @@ const text = formSelect.querySelector('.form__placeholder');
 
 //  Выпадающий список
 $('.select').each(function(){
-		// Variables
 		const $this = $(this), // присваивание $this = ('.select')
 			selectOption = $this.find('option'), // Найти пункт
 			selectOptionLength = selectOption.length, // Длинна selectOption (количество)

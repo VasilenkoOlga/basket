@@ -77,7 +77,7 @@ const configLess = {
     filename: filename('js')
   },
   resolve: {
-     extensions: ['.js', '.json', '.png'],
+     extensions: ['.js', '.json', '.png', 'svg'],
      alias: {
        '@': path.resolve(__dirname, 'src/assets'),
      },
@@ -113,18 +113,21 @@ const configLess = {
           test: /\.(ttf|woff|woff2|eot)$/,
           type: 'asset/resource'
         },
-        {
+       {
           test: /\.svg$/,
           loader: 'svg-sprite-loader',
           options: {
-            extract : true ,
+            extract : true,
             outputPath : 'dist/img/' ,
             publicPath : 'sprites/'}
         },
+
+
       ]
     },
     plugins: plugins()
 };
+
 
 if (isDev) {
     configLess.plugins.push(

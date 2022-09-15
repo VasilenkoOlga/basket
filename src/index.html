@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Интернет-магазин!</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""></script>
 </head>
 <body>
   <div class="global-wrapper">
@@ -108,11 +114,13 @@
               <textarea rows="1" class="form__input form__input--textarea form__input--adress" name="address" placeholder="Адрес" required resize="none">г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152</textarea>
               <span class="form__placeholder" data-prompt="Адрес">Адрес</span>
             </label>
+             <div id="map"></div>
+            <!--
             <picture>
               <source media="(min-width: 1110px)" srcset="img/map-desktop.jpg 1x, img/map-desktop@2x.jpg 2x">
               <img src="img/map-mobile.jpg" srcset="img/map-mobile.jpg 1x, img/map-mobile@2x.jpg 2x" alt="Карта" class="form__map-address" height="200" width="287">
             </picture>
-
+            !-->
             <div class="form__two-columns">
               <label class="form__label form__label--name" for="name">
                 <input class="form__input form__input--name" type="text" name="name" placeholder="Ваше Имя" required>

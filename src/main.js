@@ -6,5 +6,6 @@ import './js/openSearchMobile.js'
 import './js/dropDownList.js'
 import './js/changingQuantity.js'
 import './js/form.js'
+import './js/workCard.js'
 //import React from 'react';
 //import {render} from 'react-dom';

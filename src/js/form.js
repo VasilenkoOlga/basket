@@ -22,6 +22,23 @@ const selectOption = select.querySelectorAll('option');
 const address = document.querySelector('.form__label--adress');
 const addressText = address.querySelector('.form__input--adress');
 
+let data;
+let url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
+let token = "6ec3a598a2172de4be05a4cb99ca6867d8a8cf43";
+let query = addressText.value;
+
+var options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": "Token " + token
+    },
+    body: JSON.stringify({query: query})
+}
+
+
 // Проверка наличия адреса
 /*
 addressText.addEventListener('invalid', () => {
@@ -34,20 +51,32 @@ addressText.addEventListener('invalid', () => {
   }
 });
 */
+
 // Проверка заполнения адреса не менее чем на 15 симаолов
 addressText.addEventListener('input', () => {
+  query = addressText.value;
   const valueLength = addressText.value.length;
   const text = address.querySelector('.form__placeholder');
   addressText.checkValidity();
-
+  console.log(query);
   if (valueLength < MIN_ADDRESS_LENGTH) {
     addError(text, addressText, 'Не менее 15 символов');
   } else {
     removeError(text, addressText);
   }
   addressText.reportValidity();
+  console.log(data); // Тип данных строка
 });
 
+addressText.addEventListener('blur', () => {
+  query = addressText.value;
+  fetch(url, options)
+  .then(response => response.text())
+  .then(result => data = result)
+  .catch(error => console.log("error", error));
+
+  console.log(data);
+});
 
 // Проверка выбора поля "Тип упаковки"
 select.addEventListener('invalid', () => {

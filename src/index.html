@@ -111,7 +111,7 @@
           <form class="form_form" action="index.html" method="post">
 
             <label class="form__label form__label--adress">
-              <textarea rows="1" class="form__input form__input--textarea form__input--adress" name="address" placeholder="Адрес" required resize="none">г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152</textarea>
+              <textarea rows="1" id="address" class="form__input form__input--textarea form__input--adress" name="address" placeholder="Адрес" required resize="none" class="js-sgt-query suggestions-input" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false">г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152</textarea>
               <span class="form__placeholder" data-prompt="Адрес">Адрес</span>
             </label>
              <div id="map"></div>
@@ -123,23 +123,23 @@
             !-->
             <div class="form__two-columns">
               <label class="form__label form__label--name" for="name">
-                <input class="form__input form__input--name" type="text" name="name" placeholder="Ваше Имя" required>
+                <input id="name" class="form__input form__input--name" type="text" name="name" placeholder="Ваше Имя" required>
                 <span class="form__placeholder" data-prompt="Ваше Имя">Ваше Имя</span>
               </label>
 
               <label class="form__label form__label--telephone" data-tooltip="Телефон в формате +7(XXX)-XXX-XX-XX" for="telephone">
-                <input class="form__input form__input--telephone" type="tel" name="telephone" placeholder="Ваш Телефон" required>
+                <input id="telephone" class="form__input form__input--telephone" type="tel" name="telephone" placeholder="Ваш Телефон" required>
                 <span class="form__placeholder" data-prompt="Ваш Телефон">Ваш Телефон</span>
               </label>
             </div>
 
             <label class="form__label form__label--email" data-tooltip="Email в формате xxx@xx.xx" for="email">
-              <input class="form__input form__input--email" type="email" name="email" placeholder="Ваш Email" required>
+              <input id="email" class="form__input form__input--email" type="email" name="email" placeholder="Ваш Email" required>
               <span class="form__placeholder" data-prompt="Ваш Email">Ваш Email</span>
             </label>
 
             <label class="form__label form__label--type-packaging">
-              <select class="form__select select" name="type-packaging" required>
+              <select id="select" class="form__select select" name="type-packaging" required>
                 <option disabled selected hidden value=""></option>
                 <option value="without-packaging">Без упаковки</option>
                 <option value="standard-packaging">Стандартная</option>

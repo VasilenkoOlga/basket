@@ -65,7 +65,7 @@ addressText.addEventListener('input', () => {
     removeError(text, addressText);
   }
   addressText.reportValidity();
-  console.log(data); // Тип данных строка
+  console.log(typeof data); // Тип данных строка
 });
 
 addressText.addEventListener('blur', () => {
@@ -74,7 +74,7 @@ addressText.addEventListener('blur', () => {
   .then(response => response.text())
   .then(result => data = result)
   .catch(error => console.log("error", error));
-
+  data = JSON.parse(data);
   console.log(data);
 });
 

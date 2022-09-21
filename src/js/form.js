@@ -75,7 +75,10 @@ addressText.addEventListener('blur', () => {
   .then(result => data = result)
   .catch(error => console.log("error", error));
   data = JSON.parse(data);
-  console.log(data);
+  let geoLon = data.suggestions[0].data.geo_lon;
+  let geoLat = data.suggestions[0].data.geo_lat;
+  console.log(geoLon);
+  console.log(geoLat);
 });
 
 // Проверка выбора поля "Тип упаковки"

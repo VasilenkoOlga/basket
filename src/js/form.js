@@ -1,5 +1,6 @@
 import * as $ from 'jquery';
-import  {addError, removeError} from './errorVisualization.js'
+import  {addError, removeError} from './errorVisualization.js';
+import {movingNewCoordinates} from './workCard.js';
 
 const MAX_COMMENT_LENGTH = 600;
 const MIN_NAME_LENGTH = 3;
@@ -68,17 +69,19 @@ addressText.addEventListener('input', () => {
   console.log(typeof data); // Тип данных строка
 });
 
+// Получение адреса из поля (пока при изменении адреса не работает, а берет только начальный)
 addressText.addEventListener('blur', () => {
-  query = addressText.value;
+  query = addressText.value; // получение значения адреса
   fetch(url, options)
   .then(response => response.text())
-  .then(result => data = result)
-  .catch(error => console.log("error", error));
-  data = JSON.parse(data);
-  let geoLon = data.suggestions[0].data.geo_lon;
+  .then(result => data = result) // присваивание полученных данных переменнй date
+  .catch(error => console.log("error", error)); // вывод в консоль в случае ошибки
+  data = JSON.parse(data); // распарить даннные
+  let geoLon = data.suggestions[0].data.geo_lon; // присвоение координат переменным
   let geoLat = data.suggestions[0].data.geo_lat;
   console.log(geoLon);
   console.log(geoLat);
+  movingNewCoordinates(geoLat, geoLon); // перемещеие карты и создание новой метки
 });
 
 // Проверка выбора поля "Тип упаковки"

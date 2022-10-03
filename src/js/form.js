@@ -39,43 +39,30 @@ var options = {
     body: JSON.stringify({query: query})
 }
 
-
-// Проверка наличия адреса
-/*
-addressText.addEventListener('invalid', () => {
-  const text = address.querySelector('.form__placeholder');
-
-  if (addressText.validity.valueMissing){
-    addError(text, addressText, 'Обязательное поле');
-  } else {
-    removeError(text, addressText);
-  }
-});
-*/
-
-// Проверка заполнения адреса не менее чем на 15 симаолов
+// Проверка заполнения адреса и того что он содержит не менее чем на 15 симаолов
 addressText.addEventListener('input', () => {
   query = addressText.value;
   const valueLength = addressText.value.length;
   const text = address.querySelector('.form__placeholder');
   addressText.checkValidity();
   console.log(query);
-  if (valueLength < MIN_ADDRESS_LENGTH) {
+  if (valueLength == 0) {
+    addError(text, addressText, 'Обязательное поле');
+  } else if (valueLength < MIN_ADDRESS_LENGTH) {
     addError(text, addressText, 'Не менее 15 символов');
   } else {
     removeError(text, addressText);
   }
   addressText.reportValidity();
-  console.log(typeof data); // Тип данных строка
+//  console.log(typeof data); // Тип данных строка
 });
 
 // Получение адреса из поля (пока при изменении адреса не работает, а берет только начальный)
-addressText.addEventListener('blur', () => {
+addressText.addEventListener('blur', async function(){ // Делаем функцию асинхронной потому что иначе не будет работать await
   query = addressText.value; // получение значения адреса
-  fetch(url, options)
-  .then(response => response.text())
-  .then(result => data = result) // присваивание полученных данных переменнй date
-  .catch(error => console.log("error", error)); // вывод в консоль в случае ошибки
+  options.body = JSON.stringify({query: query}); // Изменение query в options, т.к. иначе используется те что записаны при инициации страницы
+  let response = await fetch(url, options);
+  data = await response.text();
   data = JSON.parse(data); // распарить даннные
   let geoLon = data.suggestions[0].data.geo_lon; // присвоение координат переменным
   let geoLat = data.suggestions[0].data.geo_lat;

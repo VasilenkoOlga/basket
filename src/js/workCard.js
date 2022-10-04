@@ -3,7 +3,7 @@ let geo_lon = 30.429083;
 let map = null;
 let marker = null;
 
-map = L.map('map').setView([geo_lat, geo_lon], 13); // поиск контейнера для карты, задание начальных координатов и масштаба
+map = L.map('map').setView([geo_lat, geo_lon], 15); // поиск контейнера для карты, задание начальных координатов и масштаба
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'

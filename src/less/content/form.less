@@ -101,9 +101,11 @@ margin-bottom: 28px;
 .form__label input:focus + .form__placeholder,
 .form__label select:focus + .form__placeholder,
 .form__label textarea:focus + .form__placeholder,
+.form__label textarea:focus ~ .form__placeholder,
 .form__label input:not(:placeholder-shown) + .form__placeholder,
 .form__label select:not(:placeholder-shown) + .form__placeholder,
 .form__label textarea:not(:placeholder-shown) + .form__placeholder,
+.form__label textarea:not(:placeholder-shown) ~ .form__placeholder,
 .form__label .form__placeholder-q {
   top: 0;
   font-size: 12px;

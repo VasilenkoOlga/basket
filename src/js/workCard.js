@@ -1,5 +1,5 @@
-let geo_lat = 60.031841; //60.031841; начальные координаты
-let geo_lon =40.429083; //30.429083;
+let geo_lat = 60.031841;
+let geo_lon = 30.429083;
 let map = null;
 let marker = null;
 
@@ -13,8 +13,8 @@ marker = L.marker([geo_lat, geo_lon], //создание начальной ме
 {alt: 'Delivery address'}).addTo(map); // добавление начальной метки альтернативного текста и размещение метки на поле для карты
 
 
-export let movingNewCoordinates = function (geo_lat1, geo_lon1){
-  map.flyTo([geo_lat1, geo_lon1]);
+export let movingNewCoordinates = function (new_geo_lat, new_geo_lon){
+  map.flyTo([new_geo_lat, new_geo_lon]);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
@@ -23,5 +23,5 @@ export let movingNewCoordinates = function (geo_lat1, geo_lon1){
   if (marker) {
     map.removeLayer(marker) // удаление старого маркера
   }
-  marker = new L.Marker([geo_lat1, geo_lon1], {alt: 'Delivery address'}).addTo(map); // добавление нового маркера на карту
+  marker = new L.Marker([new_geo_lat, new_geo_lon], {alt: 'Delivery address'}).addTo(map); // добавление нового маркера на карту
 }

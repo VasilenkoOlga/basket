@@ -45,7 +45,6 @@ addressText.addEventListener('input', () => {
   const valueLength = addressText.value.length;
   const text = address.querySelector('.form__placeholder');
   addressText.checkValidity();
-  console.log(query);
   if (valueLength == 0) {
     addError(text, addressText, 'Обязательное поле');
   } else if (valueLength < MIN_ADDRESS_LENGTH) {
@@ -61,14 +60,20 @@ addressText.addEventListener('input', () => {
 addressText.addEventListener('blur', async function(){ // Делаем функцию асинхронной потому что иначе не будет работать await
   query = addressText.value; // получение значения адреса
   options.body = JSON.stringify({query: query}); // Изменение query в options, т.к. иначе используется те что записаны при инициации страницы
-  let response = await fetch(url, options);
-  data = await response.text();
-  data = JSON.parse(data); // распарить даннные
+  let response = await fetch(url, options); // ожидание выполнения промиса (благодаря await)
+  data = await response.json(); // сохранение результата промиса в переменную (c ожиданием благодаря await)
   let geoLon = data.suggestions[0].data.geo_lon; // присвоение координат переменным
   let geoLat = data.suggestions[0].data.geo_lat;
-  console.log(geoLon);
-  console.log(geoLat);
   movingNewCoordinates(geoLat, geoLon); // перемещеие карты и создание новой метки
+});
+
+// Проверка заполнения поля "Aдрес"
+addressText.addEventListener('invalid', () => {
+  const text = address.querySelector('.form__placeholder');
+
+  if (addressText.validity.valueMissing){
+    addError(text,addressText, 'Обязательное поле');
+  }
 });
 
 // Проверка выбора поля "Тип упаковки"
@@ -188,4 +193,5 @@ form.addEventListener ("submit", function(e){
   });
   selectOption[0].setAttribute("selected", "selected");
   form.reset();
+  addressText.value = "";
 })

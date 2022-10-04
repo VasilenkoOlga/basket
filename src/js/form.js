@@ -24,11 +24,11 @@ const address = document.querySelector('.form__label--adress');
 const addressText = address.querySelector('.form__input--adress');
 
 let data;
+// Для сервиса dadata
 let url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 let token = "6ec3a598a2172de4be05a4cb99ca6867d8a8cf43";
 let query = addressText.value;
-
-var options = {
+let options = {
     method: "POST",
     mode: "cors",
     headers: {
@@ -39,8 +39,8 @@ var options = {
     body: JSON.stringify({query: query})
 }
 
-
-// Проверка заполнения поля "Aдрес"
+// Проверка поля "Адрес"
+// Проверка заполнения адреса
 addressText.addEventListener('invalid', () => {
   const text = address.querySelector('.form__placeholder');
 
@@ -83,7 +83,6 @@ addressText.addEventListener('blur', async function(){ // Делаем функ�
 //   addressText.reportValidity();
 });
 
-
 // Проверка выбора поля "Тип упаковки"
 select.addEventListener('invalid', () => {
   const text = formSelect.querySelector('.form__placeholder');
@@ -93,7 +92,7 @@ select.addEventListener('invalid', () => {
   }
 });
 
-// Проверка EMAIL
+// Проверка поля "Email"
 emailText.addEventListener('invalid', () => {
   const text = email.querySelector('.form__placeholder');
 
@@ -117,6 +116,7 @@ emailText.addEventListener('input', () => {
   emailText.reportValidity();
 })
 
+// Проверка поля "Телефон"
 // Проверка телефона на заполнение и регулярынм выражением
 telephoneText.addEventListener('invalid', () => {
   const text = telephone.querySelector('.form__placeholder');
@@ -140,6 +140,7 @@ telephoneText.addEventListener('input', () => {
   telephoneText.reportValidity();
 });
 
+// Проверка поля "Комментарий"
 // Проверки на количество символов комментария
 textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
@@ -152,6 +153,7 @@ textDescription.addEventListener('input', () => {
   textDescription.reportValidity();
 });
 
+// Проверка поля "Имя"
 nameText.addEventListener('invalid', () => {
   const text = name.querySelector('.form__placeholder');
   if (nameText.validity.valueMissing){

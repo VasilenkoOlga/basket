@@ -55,9 +55,9 @@ const plugins = () => {
   ]
 
   //Раскомментировать если нужно понять сколько что занимает места
-  if (isProd) {
-    base.push(new BundleAnalyzerPlugin())
-  }
+  //if (isProd) {
+  //  base.push(new BundleAnalyzerPlugin())
+  //}
 
   return base
 }

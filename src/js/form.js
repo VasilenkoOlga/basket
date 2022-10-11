@@ -4,7 +4,6 @@ import {movingNewCoordinates} from './workCard.js';
 
 const MAX_COMMENT_LENGTH = 600;
 const MIN_NAME_LENGTH = 3;
-const MIN_ADDRESS_LENGTH = 15;
 const form = document.querySelector('.form_form');
 const description = document.querySelector('.form__label--comment');
 const textDescription = description.querySelector('.form__input--comment');

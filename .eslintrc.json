@@ -11,7 +11,8 @@
 
   "rules": {
     "no-unused-vars": "warn",
-    "no-useless-escape": "warn"
+    "no-useless-escape": "warn",
+    "no-undef": "warn"
   },
   "env": {
     "es6": true,

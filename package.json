@@ -7,8 +7,8 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --open",
-    "start2": "cross-env NODE_ENV=production webpack-dev-server --mode production --open"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "start2": "cross-env NODE_ENV=production webpack-dev-server --mode production --hot --open"
   },
   "keywords": [],
   "browserslist": "> 0.25%, not dead",

@@ -1,4 +1,3 @@
-import * as $ from 'jquery';
 import  {addError, removeError} from './errorVisualization.js';
 import {movingNewCoordinates} from './workCard.js';
 
@@ -173,34 +172,19 @@ nameText.addEventListener('input', () => {
   nameText.reportValidity();
 });
 
-/*
-const url = '';
+// Собрание данных из формы в FormData и показ в консоль
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
   const formData = new FormData(evt.target);
-    fetch(
-      url,
-      {
-        method: 'POST',
-        body: formData,
-      },)
+  console.log(Object.fromEntries(formData));
+    // Обработка поля тип упаковки при отправке
+      selectGap.textContent = "Тип упаковки"
+      selectOption.forEach((option, i) => {
+        if(i > 0) {
+          option.removeAttribute("selected");
+        }
+      });
+      selectOption[0].setAttribute("selected", "selected");
       form.reset();
+      addressText.value = "";
 });
-*/
-
-// Временное решение для данных из формы
-form.addEventListener ("submit", function(e){
-  e.preventDefault();
-  let data = $(this).serialize();
-  console.log(data);
-// Обработка поля тип упаковки при отправке
-  selectGap.textContent = "Тип упаковки"
-  selectOption.forEach((option, i) => {
-    if(i > 0) {
-      option.removeAttribute("selected");
-    }
-  });
-  selectOption[0].setAttribute("selected", "selected");
-  form.reset();
-  addressText.value = "";
-})

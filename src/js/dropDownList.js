@@ -6,7 +6,7 @@ const select = formSelect.querySelector('.form__select');
 const text = formSelect.querySelector('.form__placeholder');
 
 //  Выпадающий список
-$('.select').each(function(){
+$('.form__select').each(function(){
 		const $this = $(this), // присваивание $this = ('.select')
 			selectOption = $this.find('option'), // Найти пункт
 			selectOptionLength = selectOption.length, // Длинна selectOption (количество)
@@ -14,7 +14,7 @@ $('.select').each(function(){
 			dur = 500;
 
 		//$this.hide(); // скрытие селекта
-		$this.wrap('<div class="select"></div>'); //создание div class="select" внутрь которого помещается селект из верстки
+		$this.wrap('<div class="select-wrapper"></div>'); //создание div class="select" внутрь которого помещается селект из верстки
 		$('<div>',{ //создание div внутри контейнера с классом и текстом
 			class: 'select__gap',
 			text: 'Тип упаковки'

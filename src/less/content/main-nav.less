@@ -23,9 +23,7 @@
 
 .main-nav_toggle-button,
 .button-search,
-.main-nav__profile,
-.main-nav__favorites,
-.main-nav__basket {
+.main-nav__tabs {
   padding: 0;
   margin: 0;
   border: none;
@@ -34,6 +32,11 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  stroke: @second-text-color;
+
+  &:hover {
+    stroke: @main-text-color;
+  }
 }
 
 .main-nav__basket-svg {
@@ -88,6 +91,8 @@
   border-bottom: 1px solid @main-text-color;
   padding: 6px 0px;
   margin-left: 8px;
+  font-size: 16px;
+  line-height: 18px;
 
   &:hover,
   &:focus,
@@ -99,6 +104,9 @@
   @media (min-width: @desktop-width) {
     display: block;
     width: 250px;
+    font-size: 18px;
+    line-height: 21px;
+
   }
 }
 
@@ -121,6 +129,7 @@
 
 .main-nav__list {
   position: absolute;
+  left: 0;
   display: none;
   list-style: none;
   padding: 0;
@@ -181,7 +190,7 @@
 }
 
 .main-nav__item-link {
-  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: @font;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -207,7 +216,7 @@
   }
 }
 
-.main-nav__profile {
+.main-nav__tabs--profile {
   display: none;
 
   @media (min-width: @desktop-width) {

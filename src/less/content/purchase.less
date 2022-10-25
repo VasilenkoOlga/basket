@@ -75,6 +75,10 @@
   }
 }
 
+.purchases__link-name {
+  text-decoration: none;
+}
+
 .purchases__name {
   font-size: 16px;
   font-weight: 700;
@@ -146,25 +150,36 @@
 }
 
 
-.purchases__button-minus,
-.purchases__button-plus,
+.purchases__button-sign,
 .purchases__number-count {
   background-color: @bg-color;
   border: none;
 }
 
-.purchases__button-minus,
-.purchases__button-plus {
+.purchases__button-sign {
   padding-left: 7px;
   padding-right: 7px;
 
+  &:hover {
+    color:@bg-color;
+    background-color: @second-text-color;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
   @media (min-width: @desktop-width) {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
+.purchases__button-sign:hover .purchases__button-svg {
+  stroke:@bg-color;
+}
+
 .purchases__button-svg {
+  stroke: black;
   width: 13px;
   height: 13px;
 
@@ -193,7 +208,7 @@
 }
 
 .purchases__delete {
-  font-family: "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: @font;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;

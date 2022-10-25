@@ -2,8 +2,8 @@ const products = document.querySelectorAll('.purchases__item'); // Все кар
 
 products.forEach((item, i) => {
   let product = products[i].querySelector('.purchases__number-count'); // Карточка товара
-  const productMinus = products[i].querySelector('.purchases__button-minus');
-  const productPlus = products[i].querySelector('.purchases__button-plus');
+  const productMinus = products[i].querySelector('.purchases__button-sign--minus');
+  const productPlus = products[i].querySelector('.purchases__button-sign--plus');
 
   let productValue = Number(product.value); // Значение количества товара
 

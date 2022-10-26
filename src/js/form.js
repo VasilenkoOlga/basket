@@ -14,12 +14,13 @@ const email = document.querySelector('.form__label--email');
 const emailText = email.querySelector('.form__input--email');
 const formSelect = document.querySelector('.form__label--type-packaging');
 const select = formSelect.querySelector('.form__select');
-const REG_TELEPHONE = /^[\d\\+][\d\\(\\)\\-]{4,14}\d$/; // от 6 до 16 цифр, первая цифра или плюс, последняя только цифра. В середине допустимы скобки и тире
+const REG_TELEPHONE = /^[\d\\+][\d\\(\\)\\-]{4,15}\d$/; // от 6 до 17 цифр, первая цифра или плюс, последняя только цифра. В середине допустимы скобки и тире
 const REG_EMAIL = /^[\w-\\.]+@[\w-]+\.[a-z]{2,4}$/;
 const selectGap = document.querySelector('.select__gap');
 const selectOption = select.querySelectorAll('option');
 const address = document.querySelector('.form__label--adress');
 const addressText = address.querySelector('.form__input--adress');
+let arrayProducts = []; // Массив для товаров
 
 let data;
 // Для сервиса dadata
@@ -172,10 +173,28 @@ nameText.addEventListener('input', () => {
   nameText.reportValidity();
 });
 
+// Создание массива товаров
+const CollectingArrayProducts = function() {
+const purchasesItems = document.querySelectorAll('.purchases__item');
+
+  for(let i = 0; i < purchasesItems.length; i++) {
+    let product = {}
+    const name = purchasesItems[i].querySelector('.purchases__name').textContent;
+    const count = purchasesItems[i].querySelector('.purchases__number-count').value;
+    const id = purchasesItems[i].querySelector('.purchases__id').textContent;
+    product.name = name;
+    product.count = count;
+    product.id = id;
+    arrayProducts.push(product);
+  }
+}
+
 // Собрание данных из формы в FormData и показ в консоль
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
+  CollectingArrayProducts();
   const formData = new FormData(evt.target);
+  formData.append('products', JSON.stringify(arrayProducts)); // Добавление массива товаров
   console.log(Object.fromEntries(formData));
     // Обработка поля тип упаковки при отправке
       selectGap.textContent = "Тип упаковки"

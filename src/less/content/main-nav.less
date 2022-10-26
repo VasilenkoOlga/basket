@@ -39,6 +39,10 @@
   }
 }
 
+.main-nav__basket {
+  position: relative;
+}
+
 .main-nav__basket-svg {
   @media (min-width: @desktop-width) {
     width: 31px;
@@ -51,6 +55,24 @@
     width: 28px;
     height: 25px;
   }
+}
+
+.main-nav__tabs-basket--count {
+  top: 0px;
+  right: 0px;
+  position: absolute;
+  color: @bg-color;
+  font-weight: 400;
+  background-color: @second-text-color;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 16px;
+  width: 16px;
+  text-align: center;
+}
+
+.main-nav__basket:hover .main-nav__tabs-basket--count {
+  background-color: @main-text-color;
 }
 
 .button-search {

@@ -52,7 +52,7 @@ $('.form__select').each(function(){
           $('select option[value="' + chooseItem + '"]').attr('selected', 'selected');
           removeError(text, select);
           selectGap.removeClass('color-red')
-					selectGap.text($(this).find('span').text());
+					selectGap.text($(this).find('span').text()).css("color", "#000000");
 					selectList.slideUp(dur); // Плавное скрытие JQ
 					selectGap.removeClass('on'); // Удалить класс
 				});

@@ -8,6 +8,8 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const SvgInlineLoader = require('svg-inline-loader');
+const FileLoader = require('file-loader');
 
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -77,13 +79,19 @@ const configLess = {
     filename: filename('js')
   },
   resolve: {
-     extensions: ['.js', '.json', '.png', 'svg'],
+     extensions: ['.js', '.json', '.png', '.svg'],
      alias: {
        '@': path.resolve(__dirname, 'src/assets'),
      },
   },
   optimization: optimization(),
   devServer: {
+
+
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+},
     hot:isDev,
     liveReload: true
   },
@@ -106,21 +114,31 @@ const configLess = {
           ]
         },
         {
-          test: /\.(png|jpg|svg|gif)$/,
+       test: /\.svg$/,
+       //loader: 'svg-inline-loader'
+       include: [/src\/img/],
+       loader: 'file-loader'
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
           type: 'asset/resource'
         },
         {
           test: /\.(ttf|woff|woff2|eot)$/,
           type: 'asset/resource'
-        },
-       {
+        }
+
+     /*
+     ,
+     {
           test: /\.svg$/,
           loader: 'svg-sprite-loader',
           options: {
             extract : true,
             outputPath : 'dist/img/' ,
             publicPath : 'sprites/'}
-        },
+        }*/
+
 
 
       ]

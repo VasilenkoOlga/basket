@@ -187,18 +187,6 @@ option {
   }
 }
 
-*,
-*:before,
-*:after{
-  box-sizing: border-box;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
 .select-wrapper {
   display: inline-block;
   vertical-align: top;
@@ -258,8 +246,10 @@ ul {
 }
 
 .select__gap:after {
-	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9' width='16' height='9' fill='none'%3E%3Cpath d='M14.6667 1L8.00008 7.66667L1.33341 0.999999' stroke='black'/%3E%3C/svg%3E");
-	display: block;
+//	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9' width='16' height='9' fill='none'%3E%3Cpath d='M14.6667 1L8.00008 7.66667L1.33341 0.999999' stroke='black'/%3E%3C/svg%3E");
+  content: "";
+  background-image: url(../../img/arrow.svg);
+  display: block;
 	width: 16px;
 	height: 9px;
 	position: absolute;

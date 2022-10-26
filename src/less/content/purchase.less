@@ -13,8 +13,22 @@
     margin-bottom: 30px;
   }
 }
-
 .purchases__item {
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dedede;
+
+  @media (min-width: @desktop-width) {
+    max-width: 506px;
+    margin-bottom: 25px;
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+}
+.purchases__article {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -135,6 +149,7 @@
   }
 }
 
+// Подсчёт количества товаров
 .purchases__number {
   display: flex;
   flex-direction: row;
@@ -148,7 +163,6 @@
     width: 114px;
   }
 }
-
 
 .purchases__button-sign,
 .purchases__number-count {
@@ -206,7 +220,7 @@
     width: 26px;
   }
 }
-
+// Удаление
 .purchases__delete {
   font-family: @font;
   font-size: 12px;
@@ -230,25 +244,7 @@
   }
 }
 
-.purchases__line {
-  margin: 0;
-  padding: 0;
-  border: 1px solid #DEDEDE;
-  border-bottom: none;
-  margin-bottom: 15px;
-
-  @media (min-width: @desktop-width) {
-    max-width: 506px;
-    margin-bottom: 25px;
-  }
-
-  &:last-of-type {
-    @media (min-width: @desktop-width) {
-      display: none;;
-    }
-  }
-}
-
+// Итоговый счёт
 .purchases__total {
   display: flex;
   flex-direction: row;

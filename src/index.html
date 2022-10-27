@@ -68,37 +68,32 @@
           </div>
         </div>
         <ul class="main-nav__list">
-          <div class="main-nav__list-left">
-            <li class="main-nav__item">
-              <a class="main-nav__item-link" href="#">Страница 1</a>
-            </li>
-            <li class="main-nav__item">
-              <a class="main-nav__item-link" href="#">Страница 2</a>
-            </li>
-            <li class="main-nav__item">
-              <a class="main-nav__item-link" href="#">Страница 3</a>
-            </li>
-          </div>
-          <div class="main-nav__list-right">
-            <li class="main-nav__item">
-              <a class="main-nav__item-link" href="#">Страница 4</a>
-            </li>
-            <li class="main-nav__item">
-              <a class="main-nav__item-link" href="#">Страница 5</a>
-            </li>
-            <li class="main-nav__item">
-              <a class="main-nav__item-link" href="#">Страница 6</a>
-            </li>
-            <li class="main-nav__item main-nav__item--profile">
-              <a class="main-nav__item-link" href="#">
-                <svg class="main-nav__tabs-svg main-nav__tabs-svg--profile" width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <use xlink:href="../img/sprite1.svg#profile"></use>
-                </svg>
-                Профиль
-              </a>
-            </li>
-          </div>
-
+          <li class="main-nav__item">
+            <a class="main-nav__item-link" href="#">Страница 1</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__item-link" href="#">Страница 2</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__item-link" href="#">Страница 3</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__item-link" href="#">Страница 4</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__item-link" href="#">Страница 5</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__item-link" href="#">Страница 6</a>
+          </li>
+          <li class="main-nav__item main-nav__item--profile">
+            <a class="main-nav__item-link" href="#">
+              <svg class="main-nav__tabs-svg main-nav__tabs-svg--profile" width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="../img/sprite1.svg#profile"></use>
+              </svg>
+              Профиль
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -296,6 +291,11 @@
     <footer class="page-footer">
     </footer>
   </div>
+  <section class="modal modal--close">
+    <h2 class="modal__title">Ваш заказ принят!</h2>
+    <p class="modal__text">Спасибо за заказ. После того как заказ будет обработан сотрудник свяжется с вами.</p>
+      <button class="button modal__button" type="button">Закрыть окно</button>
+  </section>
   <script>
       $("#address").suggestions({
           token: "6ec3a598a2172de4be05a4cb99ca6867d8a8cf43",

@@ -19,6 +19,7 @@
 .main-nav__left-icon {
   display: flex;
   flex-direction: row;
+  height: 30px;
 }
 
 .main-nav_toggle-button,
@@ -93,6 +94,7 @@
 
 .main-nav_toggle-button {
   margin-right: 15px;
+  width: 28px;
 
   @media (min-width: @mini-desktop) {
     display: none;
@@ -102,6 +104,7 @@
 .main-nav__search {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .main-nav__search-input--hidden {
@@ -115,6 +118,10 @@
   margin-left: 8px;
   font-size: 16px;
   line-height: 18px;
+  position: absolute;
+  top: 60px;
+  left: -51px;
+  width: 286px;
 
   &:hover,
   &:focus,
@@ -125,15 +132,23 @@
 
   @media (min-width: @mini-desktop) {
     display: block;
-    width: 250px;
     font-size: 18px;
     line-height: 21px;
+    position: static;
+  }
 
+  @media (min-width: @desktop-width) {
+    margin-left: 0;
   }
 }
 
 .main-nav__search-input::placeholder  {
+  font-size: 14px;
   color:@main-text-color;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+  }
 }
 
 .main-nav__right-icon {
@@ -206,18 +221,6 @@
   display: flex;
 }
 
-.main-nav__list-left,
-.main-nav__list-right {
-  flex-direction: column;
-
-  @media (min-width: @mini-desktop) {
-    width: 411px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
 .main-nav__item {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -228,6 +231,10 @@
 
   @media (min-width: @desktop-width) {
     padding-bottom: 10px;
+
+    &:nth-child(3) {
+      margin-right: 255px;
+    }
   }
 }
 

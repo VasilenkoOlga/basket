@@ -21,6 +21,8 @@ const selectOption = select.querySelectorAll('option');
 const address = document.querySelector('.form__label--adress');
 const addressText = address.querySelector('.form__input--adress');
 let arrayProducts = []; // Массив для товаров
+const modal = document.querySelector('.modal');
+const modalButton = document.querySelector('.modal__button');
 
 let data;
 // Для сервиса dadata
@@ -174,7 +176,7 @@ nameText.addEventListener('input', () => {
 });
 
 // Создание массива товаров
-const CollectingArrayProducts = function() {
+const collectingArrayProducts = function() {
 const purchasesItems = document.querySelectorAll('.purchases__item');
 
   for(let i = 0; i < purchasesItems.length; i++) {
@@ -192,10 +194,19 @@ const purchasesItems = document.querySelectorAll('.purchases__item');
 // Собрание данных из формы в FormData и показ в консоль
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  CollectingArrayProducts();
+  collectingArrayProducts();
   const formData = new FormData(evt.target);
   formData.append('products', JSON.stringify(arrayProducts)); // Добавление массива товаров
   console.log(Object.fromEntries(formData));
+  arrayProducts = [];
+
+// Открытие и закрытие окна информирования об принятии заказа
+  modal.classList.remove('modal--close');
+  if(!(modal.classList.contains('modal--close'))){
+    modalButton.addEventListener('click', function(){
+      modal.classList.add('modal--close');
+    })
+  }
     // Обработка поля тип упаковки при отправке
       selectGap.textContent = "Тип упаковки"
       selectOption.forEach((option, i) => {

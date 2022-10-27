@@ -92,7 +92,8 @@ const configLess = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
 },
-    hot:isDev,
+    //hot:isDev,
+    hot:false,
     liveReload: true
   },
   devtool: isDev ? 'source-map' : false,

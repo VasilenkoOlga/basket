@@ -10,6 +10,10 @@
      }
   },
 
+  "globals": {
+      "L": true
+  },
+
   "rules": {
     "no-unused-vars": "warn",
     "no-useless-escape": "warn",

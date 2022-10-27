@@ -46,7 +46,7 @@
             </form>
           </div>
           <a class="page-header__logo-link" href="#">
-            <img class="page-header__logo-img"src="img/logo.svg" alt="Лого" height="50" width="160">
+            <img class="page-header__logo-img" src="img/logo.svg" alt="Лого" height="50" width="160">
           </a>
           <div class="main-nav__right-icon">
             <a class="main-nav__tabs main-nav__tabs--profile main-nav__profile" href="#" aria-label="Профиль пользователя">
@@ -122,8 +122,8 @@
           <h3 class="vissualy-hidden">Контактные данные заказчика</h3>
           <form class="form_form" action="index.html" method="post">
 
-            <label class="form__label form__label--adress">
-              <textarea rows="1" id="address" class="form__input form__input--textarea form__input--adress" name="address" placeholder="Адрес" required resize="none" >г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152</textarea>
+            <label class="form__label form__label--adress" for="address">
+              <textarea rows="1" id="address" class="form__input form__input--textarea form__input--adress" name="address" placeholder="Адрес" required>г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152</textarea>
               <span class="form__placeholder" data-prompt="Адрес">Адрес</span>
             </label>
              <div id="map"></div>
@@ -161,7 +161,7 @@
             </label>
 
             <label class="form__label form__label--comment" for="comment">
-              <textarea class="form__input form__input--textarea form__input--comment" name="comment" placeholder="Введите комментарий" resize="none" manlength="600"></textarea>
+              <textarea id="comment" class="form__input form__input--textarea form__input--comment" name="comment" placeholder="Введите комментарий"></textarea>
               <span class="form__placeholder" data-prompt="Введите комментарий">Введите комментарий</span>
             </label>
 
@@ -296,14 +296,14 @@
     <footer class="page-footer">
     </footer>
   </div>
+  <script>
+      $("#address").suggestions({
+          token: "6ec3a598a2172de4be05a4cb99ca6867d8a8cf43",
+          type: "ADDRESS",
+          /* Вызывается, когда пользователь выбирает одну из подсказок */
+          onSelect: function(suggestion) {
+          }
+      });
+  </script>
 </body>
-<script>
-    $("#address").suggestions({
-        token: "6ec3a598a2172de4be05a4cb99ca6867d8a8cf43",
-        type: "ADDRESS",
-        /* Вызывается, когда пользователь выбирает одну из подсказок */
-        onSelect: function(suggestion) {
-        }
-    });
-</script>
 </html>
